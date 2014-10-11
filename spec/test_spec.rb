@@ -2,19 +2,6 @@ require 'spec_helper'
 require 'date'
 
 describe "Empty Collection of Todos Test" do 
-    
-    before :each do 
-        delete_all 
-        hash = [
-            {title: "Abi", due: Date.today.to_s},
-            {title: "Romeo", due: Date.today.to_s},
-            {title: "Trish", due: Date.today.to_s},
-            {title: "Dave", due: Date.today.to_s},
-            {title: "Sonny", due: Date.today.to_s},
-            {title: "Aaron", due: Date.today.to_s},
-            ]
-        create_todos hash 
-    end 
 
     
     after :all do 
@@ -42,7 +29,7 @@ describe "Empty Collection of Todos Test" do
     #Test No.3 - creating a new Todo Item with both title and due being inputted 
     it "should create a Todo Item with both due date and title" do 
         title = "Abi"
-        due_date = "12-04-2011"
+        due_date = "2011-04-11"
         
         c = HTTParty.post url("/todos"), 
             query: {title: title, due: due_date}

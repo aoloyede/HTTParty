@@ -23,3 +23,11 @@ def create_todos(array)
         HTTParty.post url("/todos"), query: item 
     end 
 end  
+
+def get_id_all 
+    @id = HTTParty.get url("/todos")
+
+    @id.each do |todo|
+        HTTParty.get url("/todos/" + todo["id"].to_s)
+    end 
+end
